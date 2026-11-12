@@ -1,5 +1,5 @@
 // Static game data: map size, nations, unit stats, counters, terrain costs, tech tree.
-export const W=14,H=10,ROUND_LIMIT=45;
+export const W=24,H=14,ROUND_LIMIT=60;
 
 export const NATIONS=[
   {name:'Valdoria',capital:'Aurelon',motto:'Steel before slogans.',corner:'North-west',cmd:['Aldric','Corvane','Maren','Tolliver','Sedgwick','Ashgrove','Hollis','Brandt']},
