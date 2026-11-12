@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1216">
+<meta name="description" content="A turn-based hex-map conquest game. Raise armies, research upgrades and capture every rival capital.">
+<title>Hexfront Conquest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="hud">
+    <div class="brand"><b>Hexfront</b><span>Turn-based conquest</span></div>
+    <div class="stats">
+      <div class="stat"><small>Round</small><strong id="hRound" class="mono">1</strong></div>
+      <div class="stat"><small>Moving</small><strong class="chip"><i class="dot" id="hDot"></i><span id="hNation">-</span></strong></div>
+      <div class="stat"><small>Treasury</small><strong class="mono"><span id="hGold">0</span> <span id="hInc" style="color:var(--good);font-size:13px"></span></strong></div>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="fastBtn" type="button" aria-pressed="false">Fast AI</button>
+      <button class="btn primary" id="endBtn" type="button">End turn</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="board" id="board">
+      <canvas id="map" aria-label="Campaign map. Tap a unit to select it, then tap a highlighted hex to move or an enemy to attack."></canvas>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+    <aside class="side" id="side">
+      <section class="card"><h3>Powers</h3><div class="score" id="score"></div></section>
+      <section class="card">
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" id="tabField" data-act="tab:field" type="button">Field</button>
+          <button class="tab" role="tab" id="tabTech" data-act="tab:tech" type="button">Research</button>
+          <button class="tab" role="tab" id="tabLog" data-act="tab:log" type="button">Dispatches</button>
+        </div>
+        <div class="panel" id="panel"></div>
+      </section>
+    </aside>
+  </main>
+</div>
+
+<div class="overlay" id="start">
+  <div class="sheet">
+    <h1>Hexfront<br>Conquest</h1>
+    <p class="lead">Four powers share one continent. Raise armies, upgrade them in the field, and take every rival capital before they take yours.</p>
+    <h2>Choose your power</h2>
+    <div class="nations" id="nationPick"></div>
+    <h2>Enemy command</h2>
+    <div class="diffs">
+      <label><input type="radio" name="diff" value="easy"><span class="dchip">Recruit</span></label>
+      <label><input type="radio" name="diff" value="normal" checked><span class="dchip">Veteran</span></label>
+      <label><input type="radio" name="diff" value="hard"><span class="dchip">Warlord</span></label>
+    </div>
+    <button class="btn primary big" id="startBtn" type="button">Begin campaign</button>
+  </div>
+</div>
+
+<div class="overlay" id="endScreen" hidden>
+  <div class="sheet">
+    <h1 id="endTitle">Victory</h1>
+    <p class="lead" id="endLead"></p>
+    <div class="endstats" id="endStats"></div>
+    <button class="btn primary big" id="againBtn" type="button">New campaign</button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
