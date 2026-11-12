@@ -30,7 +30,7 @@ body{
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px));
 }
-.app{max-width:1180px;margin:0 auto;display:grid;gap:12px}
+.app{max-width:1280px;margin:0 auto;display:grid;gap:12px}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
 /* HUD */
